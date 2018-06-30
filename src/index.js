@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-const title = 'Ololo';
+import MainScreen from "./components/MainScreen";
 
 ReactDOM.render(
-  <div>{title}</div>,
+  <MainScreen/>,
   document.getElementById('app')
 );
 
