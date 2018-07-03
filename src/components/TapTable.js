@@ -52,6 +52,11 @@ const OriginSpan = styled.span`
   font-size: 16px;
 `
 
+const IconWrapper = styled.div`
+  width: 14px;
+  height: 14px;
+`
+
 class TableRows extends React.Component {
   render() {
     const {
@@ -68,19 +73,19 @@ class TableRows extends React.Component {
         <StyledTableCell key={data.abvibu}>{data.abvibu}</StyledTableCell>
         <StyledTableCell key={'price'}>
           <StyledPrice key={data.price025}>
-            <IconPrice025/>
+            <IconWrapper><IconPrice025/></IconWrapper>
             {data.price025 + ' р.'}
           </StyledPrice>
           <StyledPrice key={data.price033}>
-            <IconPrice033/>
+            <IconWrapper><IconPrice033/></IconWrapper>
             {data.price033 + ' р.'}
           </StyledPrice>
           <StyledPrice key={data.price040}>
-            <IconPrice040/>
+            <IconWrapper><IconPrice040/></IconWrapper>
             {data.price040 + ' р.'}
           </StyledPrice>
           <StyledPrice key={data.price050}>
-            <IconPrice050/>
+            <IconWrapper><IconPrice050/></IconWrapper>
             {data.price050 + ' р.'}
           </StyledPrice>
         </StyledTableCell>

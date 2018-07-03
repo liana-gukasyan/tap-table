@@ -18,24 +18,29 @@ const TableLegendContainer = styled.div`
   margin-left: 20px;
 `
 
+const IconWrapper = styled.div`
+  width: 24px;
+  height: 24px;
+`
+
 export default class TableLegend extends Component {
   render() {
     return (
       <TableLegendContainer>
         <VolumeDiv>
-          <IconPrice025/>
+          <IconWrapper><IconPrice025/></IconWrapper>
           0.25 ml
         </VolumeDiv>
         <VolumeDiv>
-          <IconPrice033/>
+          <IconWrapper><IconPrice033/></IconWrapper>
           0.33 ml
         </VolumeDiv>
         <VolumeDiv>
-          <IconPrice040/>
+          <IconWrapper><IconPrice040/></IconWrapper>
           0.4 ml
         </VolumeDiv>
         <VolumeDiv>
-          <IconPrice050/>
+          <IconWrapper><IconPrice050/></IconWrapper>
           0.5 ml
         </VolumeDiv>
       </TableLegendContainer>
