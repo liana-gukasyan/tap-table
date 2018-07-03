@@ -65,29 +65,64 @@ class TableRows extends React.Component {
 
     return data.map((data) =>
       <tr key={data.tapNumber}>
-        <StyledTableCell key={data.titleFirstRow}>
-          {data.titleFirstRow}
-          <OriginSpan>({data.titleSecondRow})</OriginSpan>
-        </StyledTableCell>
-        <StyledTableCell key={data.style}>{data.style}</StyledTableCell>
-        <StyledTableCell key={data.abvibu}>{data.abvibu}</StyledTableCell>
+        {
+          data.titleFirstRow ?
+          <StyledTableCell key={data.titleFirstRow}>
+            {data.tapNumber + '. ' + data.titleFirstRow}
+            <OriginSpan>({data.titleSecondRow})</OriginSpan>
+          </StyledTableCell>
+          :
+          <StyledTableCell/>
+        }
+        {
+          data.style ?
+          <StyledTableCell key={data.style}>{data.style}</StyledTableCell>
+          :
+          <StyledTableCell/>
+        }
+        {
+          data.abvibu ?
+          <StyledTableCell key={data.abvibu}>{data.abvibu}</StyledTableCell>
+          :
+          <StyledTableCell/>
+        }
         <StyledTableCell key={'price'}>
-          <StyledPrice key={data.price025}>
-            <IconWrapper><IconPrice025/></IconWrapper>
-            {data.price025 + ' р.'}
-          </StyledPrice>
-          <StyledPrice key={data.price033}>
-            <IconWrapper><IconPrice033/></IconWrapper>
-            {data.price033 + ' р.'}
-          </StyledPrice>
-          <StyledPrice key={data.price040}>
-            <IconWrapper><IconPrice040/></IconWrapper>
-            {data.price040 + ' р.'}
-          </StyledPrice>
-          <StyledPrice key={data.price050}>
-            <IconWrapper><IconPrice050/></IconWrapper>
-            {data.price050 + ' р.'}
-          </StyledPrice>
+          {
+            data.price025 ?
+            <StyledPrice key={data.price025}>
+              <IconWrapper><IconPrice025/></IconWrapper>
+              {data.price025 + ' р.'}
+            </StyledPrice>
+            :
+            <StyledPrice/>
+          }
+          {
+            data.price033 ?
+            <StyledPrice key={data.price033}>
+              <IconWrapper><IconPrice033/></IconWrapper>
+              {data.price033 + ' р.'}
+            </StyledPrice>
+            :
+            <StyledPrice/>
+          }
+          {
+            data.price040 ?
+            <StyledPrice key={data.price040}>
+              <IconWrapper><IconPrice040/></IconWrapper>
+              {data.price040 + ' р.'}
+            </StyledPrice>
+            :
+            <StyledPrice/>
+          }
+          {
+            data.price050 ?
+            <StyledPrice key={data.price050}>
+              <IconWrapper><IconPrice050/></IconWrapper>
+              {data.price050 + ' р.'}
+            </StyledPrice>
+            :
+            <StyledPrice/>
+          }
         </StyledTableCell>
       </tr>
     );
@@ -116,16 +151,16 @@ export default class TapTable extends Component {
 TapTable.propTypes = {
   data: PropTypes.arrayOf(
       PropTypes.shape({
-        tapNumber: PropTypes.number,
-        titleFirstRow: PropTypes.string,
-        titleSecondRow: PropTypes.string,
-        style: PropTypes.string,
-        abvibu: PropTypes.string,
-        price025: PropTypes.number,
-        price033: PropTypes.number,
-        price040: PropTypes.number,
-        price050: PropTypes.number,
+        tapNumber: PropTypes.number.isRequired,
+        titleFirstRow: PropTypes.oneOfType([null, PropTypes.string]),
+        titleSecondRow: PropTypes.oneOfType([null, PropTypes.string]),
+        style: PropTypes.oneOfType([null, PropTypes.string]),
+        abvibu: PropTypes.oneOfType([null, PropTypes.string]),
+        price025: PropTypes.oneOfType([null, PropTypes.number]),
+        price033: PropTypes.oneOfType([null, PropTypes.number]),
+        price040: PropTypes.oneOfType([null, PropTypes.number]),
+        price050: PropTypes.oneOfType([null, PropTypes.number]),
       }
     )
-  ).isRequired
+  )
 }
