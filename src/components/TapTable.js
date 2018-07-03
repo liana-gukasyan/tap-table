@@ -2,11 +2,15 @@ import React,{ Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import IconPrice025 from "./IconPrice025";
+import IconPrice033 from "./IconPrice033";
+import IconPrice040 from "./IconPrice040";
+import IconPrice050 from "./IconPrice050";
+
 import background from "../assets/img/jungle.jpg";
 
 const StyledTable = styled.table`
   width: 100%;
-  padding: 20px;
 `
 
 const StyledHeaderCell = styled.th`
@@ -21,6 +25,7 @@ const StyledHeaderCell = styled.th`
 `
 
 const StyledTableCell = styled.td`
+  height: 70px;
   text-align: center;
   border-left: 1px dotted white;
   border-bottom: 1px dotted white;
@@ -29,10 +34,18 @@ const StyledTableCell = styled.td`
     text-align: left;
     display: flex;
     flex-direction: column;
+    justify-content: center;
   }
   &:last-child {
     border-right: 1px dotted white;
   }
+`
+
+const StyledPrice = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 14px;
 `
 
 const OriginSpan = styled.span`
@@ -53,10 +66,24 @@ class TableRows extends React.Component {
         </StyledTableCell>
         <StyledTableCell key={data.style}>{data.style}</StyledTableCell>
         <StyledTableCell key={data.abvibu}>{data.abvibu}</StyledTableCell>
-        <StyledTableCell key={data.price025}>{data.price025}</StyledTableCell>
-        <StyledTableCell key={data.price033}>{data.price033}</StyledTableCell>
-        <StyledTableCell key={data.price040}>{data.price040}</StyledTableCell>
-        <StyledTableCell key={data.price050}>{data.price050}</StyledTableCell>
+        <StyledTableCell key={'price'}>
+          <StyledPrice key={data.price025}>
+            <IconPrice025/>
+            {data.price025 + ' р.'}
+          </StyledPrice>
+          <StyledPrice key={data.price033}>
+            <IconPrice033/>
+            {data.price033 + ' р.'}
+          </StyledPrice>
+          <StyledPrice key={data.price040}>
+            <IconPrice040/>
+            {data.price040 + ' р.'}
+          </StyledPrice>
+          <StyledPrice key={data.price050}>
+            <IconPrice050/>
+            {data.price050 + ' р.'}
+          </StyledPrice>
+        </StyledTableCell>
       </tr>
     );
   }
@@ -71,10 +98,7 @@ export default class TapTable extends Component {
             <StyledHeaderCell>Название/пивоварня</StyledHeaderCell>
             <StyledHeaderCell>Стиль</StyledHeaderCell> 
             <StyledHeaderCell>ABV/IBU</StyledHeaderCell>
-            <StyledHeaderCell>0.25 ml</StyledHeaderCell>
-            <StyledHeaderCell>0.33 ml</StyledHeaderCell>
-            <StyledHeaderCell>0.4 ml</StyledHeaderCell>
-            <StyledHeaderCell>0.5 ml</StyledHeaderCell>
+            <StyledHeaderCell>Цена</StyledHeaderCell>
           </tr>
           <TableRows data={this.props.data} />
         </tbody>

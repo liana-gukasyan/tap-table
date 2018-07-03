@@ -13,11 +13,20 @@ const StyledMainScreen = styled.div`
   color: white;
 `
 
+const StyledTapTableContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+`
+
 export default class MainScreen extends Component {
   render() {
     return (
       <StyledMainScreen>
-        <TapTable data={mockTaps1}/>
+        <StyledTapTableContainer>
+          <TapTable data={mockTaps1}/>
+          <TapTable data={mockTaps2}/>
+        </StyledTapTableContainer>
         <TableLegend/>
       </StyledMainScreen>
     )
