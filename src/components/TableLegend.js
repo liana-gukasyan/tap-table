@@ -15,6 +15,7 @@ export default class TableLegend extends Component {
       <TableLegendContainer>
         <VolumeSpan>0.25 ml</VolumeSpan>
         <VolumeSpan>0.33 ml</VolumeSpan>
+        <VolumeSpan>0.4 ml</VolumeSpan>
         <VolumeSpan>0.5 ml</VolumeSpan>
       </TableLegendContainer>
     )
