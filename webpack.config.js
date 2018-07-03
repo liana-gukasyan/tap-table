@@ -33,7 +33,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, '/dist'),
-    publicPath: '/',
+    publicPath: '/tap-table/',
     filename: 'bundle.js'
   },
   plugins: [
