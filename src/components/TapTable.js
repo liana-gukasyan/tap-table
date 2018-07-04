@@ -11,9 +11,11 @@ import background from "../assets/img/jungle.jpg";
 
 const StyledTable = styled.table`
   width: 100%;
+  height: 100%;
 `
 
 const StyledHeaderCell = styled.th`
+  height: 40px;
   border-bottom: 1px solid white;
   border-left: 1px dotted white;
   &:first-child {
@@ -25,20 +27,21 @@ const StyledHeaderCell = styled.th`
 `
 
 const StyledTableCell = styled.td`
-  height: 70px;
+  height: 54px;
   text-align: center;
   border-left: 1px dotted white;
   border-bottom: 1px dotted white;
 
-  &:first-child {
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
   &:last-child {
     border-right: 1px dotted white;
   }
+`
+
+const TitleCell = styled.div`
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `
 
 const StyledPrice = styled.div`
@@ -68,8 +71,10 @@ class TableRows extends React.Component {
         {
           data.titleFirstRow ?
           <StyledTableCell key={data.titleFirstRow}>
-            {data.tapNumber + '. ' + data.titleFirstRow}
-            <OriginSpan>({data.titleSecondRow})</OriginSpan>
+            <TitleCell>
+              {data.tapNumber + '. ' + data.titleFirstRow}
+              <OriginSpan>({data.titleSecondRow})</OriginSpan>
+            </TitleCell>
           </StyledTableCell>
           :
           <StyledTableCell/>

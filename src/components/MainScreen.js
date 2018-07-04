@@ -17,6 +17,7 @@ const StyledMainScreen = styled.div`
 const StyledTapTableContainer = styled.div`
   display: flex;
   justify-content: center;
+  height: 90vh;
   padding: 20px;
 `
 
