@@ -1,10 +1,10 @@
-import React, { Component, Fragment } from "react";
-import styled from "styled-components";
+import React, { Component, Fragment } from 'react'
+import styled from 'styled-components'
 
-import IconPrice025 from "./IconPrice025";
-import IconPrice033 from "./IconPrice033";
-import IconPrice040 from "./IconPrice040";
-import IconPrice050 from "./IconPrice050";
+import IconPrice025 from './IconPrice025'
+import IconPrice033 from './IconPrice033'
+import IconPrice040 from './IconPrice040'
+import IconPrice050 from './IconPrice050'
 
 const VolumeDiv = styled.div`
   display: flex;

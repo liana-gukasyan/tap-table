@@ -1,17 +1,23 @@
-import React, { Component, Fragment } from "react";
-import styled from "styled-components";
+import React, { Component, Fragment } from 'react'
+import styled from 'styled-components'
 
-import TapTable from "./TapTable";
-import TableLegend from "./TableLegend";
-import FileSelector from "./FileSelector"
+import TapTable from './TapTable'
+import TableLegend from './TableLegend'
+import FileSelector from './FileSelector'
 
-import background from "../assets/img/jungle.jpg";
+import background from '../assets/img/jungle.jpg'
+import font from '../fonts/Barkentina.otf'
 
 const StyledMainScreen = styled.div`
   width: 100%;
   height: 100vh;
   background-image: url(${background});
   color: white;
+  @font-face {
+    font-family: 'Barkentina';
+    src: url(${font});
+  }
+  font-family: 'Barkentina';
 `
 
 const StyledTapTableContainer = styled.div`
@@ -56,80 +62,80 @@ export default class MainScreen extends Component {
 
 const mockTaps1 = [{
   tapNumber: 1,
-  titleFirstRow: "Best beer",
-  titleSecondRow: "Rostov-on-Don",
-  style: "Tripel",
-  abvibu: "8.2/N/A",
+  titleFirstRow: 'Best beer',
+  titleSecondRow: 'Rostov-on-Don',
+  style: 'Tripel',
+  abvibu: '8.2/N/A',
   price025: 100,
   price033: 150,
   price040: 250,
   price050: 300,
 },{
   tapNumber: 2,
-  titleFirstRow: "Ololo",
-  titleSecondRow: "Barcelona",
-  style: "Tripel",
-  abvibu: "8.2/N/A",
+  titleFirstRow: 'Ololo',
+  titleSecondRow: 'Barcelona',
+  style: 'Tripel',
+  abvibu: '8.2/N/A',
   price025: 100,
   price033: 200,
   price040: 250,
   price050: 300,
 },{
   tapNumber: 3,
-  titleFirstRow: "Another beer",
-  titleSecondRow: "Paris",
-  style: "Tripel",
-  abvibu: "8.2/N/A",
+  titleFirstRow: 'Another beer',
+  titleSecondRow: 'Paris',
+  style: 'Tripel',
+  abvibu: '8.2/N/A',
   price025: 50,
   price033: 250,
   price040: 250,
   price050: 500,
 },{
   tapNumber: 1,
-  titleFirstRow: "Best beer",
-  titleSecondRow: "Rostov-on-Don",
-  style: "Tripel",
-  abvibu: "8.2/N/A",
+  titleFirstRow: 'Best beer',
+  titleSecondRow: 'Rostov-on-Don',
+  style: 'Tripel',
+  abvibu: '8.2/N/A',
   price025: 100,
   price033: 150,
   price040: 250,
   price050: 300,
 },{
   tapNumber: 2,
-  titleFirstRow: "Ololo",
-  titleSecondRow: "Barcelona",
-  style: "Tripel",
-  abvibu: "8.2/N/A",
+  titleFirstRow: 'Ololo',
+  titleSecondRow: 'Barcelona',
+  style: 'Tripel',
+  abvibu: '8.2/N/A',
   price025: 100,
   price033: 200,
   price040: 250,
   price050: 300,
 },{
   tapNumber: 3,
-  titleFirstRow: "Another beer",
-  titleSecondRow: "Paris",
-  style: "Tripel",
-  abvibu: "8.2/N/A",
+  titleFirstRow: 'Another beer',
+  titleSecondRow: 'Paris',
+  style: 'Tripel',
+  abvibu: '8.2/N/A',
   price025: 50,
   price033: 250,
   price040: 250,
   price050: 500,
 },{
   tapNumber: 1,
-  titleFirstRow: "Best beer",
-  titleSecondRow: "Rostov-on-Don",
-  style: "Tripel",
-  abvibu: "8.2/N/A",
+  titleFirstRow: 'Best beer',
+  titleSecondRow: 'Rostov-on-Don',
+  style: 'Tripel',
+  abvibu: '8.2/N/A',
   price025: 100,
   price033: 150,
   price040: 250,
   price050: 300,
 },{
   tapNumber: 2,
-  titleFirstRow: "Ololo",
-  titleSecondRow: "Barcelona",
-  style: "Tripel",
-  abvibu: "8.2/N/A",
+  titleFirstRow: 'Ololo',
+  titleSecondRow: 'Barcelona',
+  style: 'Tripel',
+  abvibu: '8.2/N/A',
   price025: 100,
   price033: 200,
   price040: 250,
@@ -138,82 +144,82 @@ const mockTaps1 = [{
 
 const mockTaps2 = [{
   tapNumber: 3,
-  titleFirstRow: "Another beer",
-  titleSecondRow: "Paris",
-  style: "Tripel",
-  abvibu: "8.2/N/A",
+  titleFirstRow: 'Another beer',
+  titleSecondRow: 'Paris',
+  style: 'Tripel',
+  abvibu: '8.2/N/A',
   price025: 50,
   price033: 250,
   price040: 250,
   price050: 500,
 },{
   tapNumber: 1,
-  titleFirstRow: "Best beer",
-  titleSecondRow: "Rostov-on-Don",
-  style: "Tripel",
-  abvibu: "8.2/N/A",
+  titleFirstRow: 'Best beer',
+  titleSecondRow: 'Rostov-on-Don',
+  style: 'Tripel',
+  abvibu: '8.2/N/A',
   price025: 100,
   price033: 150,
   price040: 250,
   price050: 300,
 },{
   tapNumber: 2,
-  titleFirstRow: "Ololo",
-  titleSecondRow: "Barcelona",
-  style: "Tripel",
-  abvibu: "8.2/N/A",
+  titleFirstRow: 'Ololo',
+  titleSecondRow: 'Barcelona',
+  style: 'Tripel',
+  abvibu: '8.2/N/A',
   price025: 100,
   price033: 200,
   price040: 250,
   price050: 300,
 },{
   tapNumber: 3,
-  titleFirstRow: "Another beer",
-  titleSecondRow: "Paris",
-  style: "Tripel",
-  abvibu: "8.2/N/A",
+  titleFirstRow: 'Another beer',
+  titleSecondRow: 'Paris',
+  style: 'Tripel',
+  abvibu: '8.2/N/A',
   price025: 50,
   price033: 250,
   price040: 250,
   price050: 500,
 },{
   tapNumber: 3,
-  titleFirstRow: "Another beer",
-  titleSecondRow: "Paris",
-  style: "Tripel",
-  abvibu: "8.2/N/A",
+  titleFirstRow: 'Another beer',
+  titleSecondRow: 'Paris',
+  style: 'Tripel',
+  abvibu: '8.2/N/A',
   price025: 50,
   price033: 250,
   price040: 250,
   price050: 500,
 },{
   tapNumber: 1,
-  titleFirstRow: "Best beer",
-  titleSecondRow: "Rostov-on-Don",
-  style: "Tripel",
-  abvibu: "8.2/N/A",
+  titleFirstRow: 'Best beer',
+  titleSecondRow: 'Rostov-on-Don',
+  style: 'Tripel',
+  abvibu: '8.2/N/A',
   price025: 100,
   price033: 150,
   price040: 250,
   price050: 300,
 },{
   tapNumber: 2,
-  titleFirstRow: "Ololo",
-  titleSecondRow: "Barcelona",
-  style: "Tripel",
-  abvibu: "8.2/N/A",
+  titleFirstRow: 'Ololo',
+  titleSecondRow: 'Barcelona',
+  style: 'Tripel',
+  abvibu: '8.2/N/A',
   price025: 100,
   price033: 200,
   price040: 250,
   price050: 300,
 },{
   tapNumber: 3,
-  titleFirstRow: "Another beer",
-  titleSecondRow: "Paris",
-  style: "Tripel",
-  abvibu: "8.2/N/A",
+  titleFirstRow: 'Another beer',
+  titleSecondRow: 'Paris',
+  style: 'Tripel',
+  abvibu: '8.2/N/A',
   price025: 50,
   price033: 250,
   price040: 250,
   price050: 500,
-}];
+}]

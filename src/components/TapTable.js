@@ -1,13 +1,13 @@
-import React,{ Component, Fragment } from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React,{ Component, Fragment } from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
-import IconPrice025 from "./IconPrice025";
-import IconPrice033 from "./IconPrice033";
-import IconPrice040 from "./IconPrice040";
-import IconPrice050 from "./IconPrice050";
+import IconPrice025 from './IconPrice025'
+import IconPrice033 from './IconPrice033'
+import IconPrice040 from './IconPrice040'
+import IconPrice050 from './IconPrice050'
 
-import background from "../assets/img/jungle.jpg";
+import background from '../assets/img/jungle.jpg';
 
 const StyledTable = styled.table`
   width: 100%;
@@ -64,7 +64,7 @@ class TableRows extends React.Component {
   render() {
     const {
       data
-    } = this.props;
+    } = this.props
 
     return data.map((data) =>
       <tr key={data.tapNumber}>
@@ -130,7 +130,7 @@ class TableRows extends React.Component {
           }
         </StyledTableCell>
       </tr>
-    );
+    )
   }
 }
 
@@ -148,7 +148,7 @@ export default class TapTable extends Component {
           <TableRows data={this.props.data} />
         </tbody>
       </StyledTable>
-    );
+    )
   }
 }
 
