@@ -38,10 +38,11 @@ const StyledTableCell = styled.td`
 `
 
 const TitleCell = styled.div`
-  text-align: left;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-left: 6px;
+  text-align: left;
 `
 
 const StyledPrice = styled.div`
@@ -73,7 +74,7 @@ class TableRows extends React.Component {
           <StyledTableCell key={data.titleFirstRow}>
             <TitleCell>
               {data.tapNumber + '. ' + data.titleFirstRow}
-              <OriginSpan>({data.titleSecondRow})</OriginSpan>
+              <OriginSpan>{data.titleSecondRow}</OriginSpan>
             </TitleCell>
           </StyledTableCell>
           :
@@ -140,7 +141,9 @@ export default class TapTable extends Component {
       <StyledTable>
         <tbody>
           <tr>
-            <StyledHeaderCell>Название/пивоварня</StyledHeaderCell>
+            <StyledHeaderCell style={{paddingLeft:'6px'}}>
+              Название/пивоварня
+            </StyledHeaderCell>
             <StyledHeaderCell>Стиль</StyledHeaderCell> 
             <StyledHeaderCell>ABV/IBU</StyledHeaderCell>
             <StyledHeaderCell>Цена</StyledHeaderCell>
