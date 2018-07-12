@@ -27,6 +27,11 @@ module.exports = {
       },
     ]
   },
+  node: {
+    net: 'empty',
+    tls: 'empty',
+    dns: 'empty'
+  },
   resolve: {
     extensions: ['*', '.js', '.jsx']
   },

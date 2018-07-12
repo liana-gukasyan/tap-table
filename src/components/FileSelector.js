@@ -2,6 +2,8 @@ import React from 'react'
 import XLSX from 'xlsx'
 import styled from "styled-components"
 
+import {validateModel, getFileExtension} from '../utils'
+
 const TopAbsolute = styled.div`
   position: fixed;
   top: 0;
@@ -32,29 +34,44 @@ const FileLabel = styled.label`
 export default class FileSelector extends React.Component {
     handleChange(selectorFiles) {
       const f = selectorFiles[0]
+      const ext = getFileExtension(f.name)
+      if(ext !== 'xlsx') {
+        this.props.onModelParseError(
+          `TapTable умеет читать только эксель файлы с расширением xlsx, вы загразили файл с расширением ${ext}.`
+        )
+        return
+      }
+
       const reader = new FileReader()
+
       reader.onload = (e) => {
         let data = e.target.result
         data = new Uint8Array(data)
         const workbook = XLSX.read(data, {type: 'array'})
         const parsedModel = XLSX.utils.sheet_to_json(workbook.Sheets.Sheet1)
-        const model = parsedModel.map(m => {
-          return {
-            tapNumber: Number(m.tapNumber),
-            titleFirstRow: m.titleFirstRow,
-            titleSecondRow: m.titleSecondRow,
-            style: m.style,
-            abvibu: `${m.abv}/${m.ibu}`,
-            titleSecondRow: m.titleSecondRow,
-            price025: Number(m.price025),
-            price033: Number(m.price033),
-            price040: Number(m.price040),
-            price050: Number(m.price050),
-            price025: Number(m.price025),
-          }
-        })
-        localStorage.setItem('model', JSON.stringify(model))
-        this.props.onModelUpdate(model)
+
+        const result = validateModel(parsedModel)
+
+        if (result.error === null) {
+          const model = parsedModel.map(m => {
+            return {
+              tapNumber: Number(m.tapNumber),
+              titleFirstRow: m.titleFirstRow,
+              titleSecondRow: m.titleSecondRow,
+              style: m.style,
+              abvibu: `${m.abv}/${m.ibu}`,
+              price025: Number(m.price025),
+              price033: Number(m.price033),
+              price040: Number(m.price040),
+              price050: Number(m.price050),
+            }
+          })
+          localStorage.setItem('model', JSON.stringify(model))
+          this.props.onModelUpdate(model)
+        } else {
+          console.warn('parsing error', result)
+          this.props.onModelParseError('TapTable не может прочитать ваш xlsx файл! Мы ожидаем на входе файл определнной структуры, прверьте вашу талицу и еще раз сверьтесь с обазцом.')
+        }
       }
 
       reader.readAsArrayBuffer(f)
@@ -63,7 +80,17 @@ export default class FileSelector extends React.Component {
     render () {
       return <TopAbsolute>
         <FileLabel htmlFor="file"></FileLabel>
-        <FileInput type="file" name="file" id="file" onChange={ (e) => this.handleChange(e.target.files) } />
+        <FileInput
+          type="file"
+          name="file"
+          id="file"
+          onInput={e => {
+            this.handleChange(e.target.files)
+          }}
+          onClick={e => {
+            e.target.value = null
+          }}
+        />
       </TopAbsolute>
     }
 }

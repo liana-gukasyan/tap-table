@@ -1,9 +1,12 @@
 import React, { Component, Fragment } from 'react'
 import styled from 'styled-components'
+import NotificationSystem from 'react-notification-system'
 
 import TapTable from './TapTable'
 import TableLegend from './TableLegend'
 import FileSelector from './FileSelector'
+
+import {emptyModel} from '../utils'
 
 import background from '../assets/img/jungle.jpg'
 import font from '../fonts/Barkentina.otf'
@@ -27,6 +30,38 @@ const StyledTapTableContainer = styled.div`
   padding: 20px;
 `
 
+const notificationStyle = {
+  NotificationItem: {
+    DefaultStyle: {
+      backgroundColor: '#080A19',
+      opacity: 0.9,
+      color: '#fff',
+      boxShadow: 'none',
+      fontSize: 15,
+      fontWeight: 300,
+    },
+
+    info: {
+      borderTop: '2px solid #1D74B5',
+    },
+
+    error: {
+      borderTop: '2px solid #E04532',
+    },
+  },
+  Dismiss: {
+    info: {
+      color: '#fff',
+      backgroundColor: 'none',
+    },
+
+    error: {
+      color: '#fff',
+      backgroundColor: 'none',
+    },
+  }
+}
+
 export default class MainScreen extends Component {
   constructor() {
     super()
@@ -36,26 +71,58 @@ export default class MainScreen extends Component {
         model: JSON.parse(modelFromLocalStorage)
       }
     } else {
-      this.state = {
-        model: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(n => {
-          return {
-            tapNumber: n,
-          }
+      setTimeout(_ => {
+        this._notificationSystem.addNotification({
+          message: '🤔 Для загрузки таблицы кранов из эксель файлы (xlsx) кликните в левый верхний угол страницы',
+          position: 'tc',
+          autoDismiss: 20,
+          level: 'info',
         })
+      }, 1000)
+      this.state = {
+        model: emptyModel()
       }
-    }    
+    }
+  }
+
+  onModelUpdate(data) {
+    this.setState({model: data})
+    this._notificationSystem.addNotification({
+      message: 'Таблица обновлена 👍',
+      position: 'tc',
+      level: 'info',
+      autoDismiss: 5,
+    })
+  }
+
+  onModelParseError(error) {
+    this._notificationSystem.addNotification({
+      message: error,
+      position: 'tc',
+      autoDismiss: 10,
+      level: 'error',
+    })
+  }
+
+  componentDidMount() {
+    this._notificationSystem = this.refs.notificationSystem
   }
 
   render() {
     return (
-      <StyledMainScreen>
-        <StyledTapTableContainer>
-          <TapTable data={this.state.model.slice(0, 8)}/>
-          <TapTable data={this.state.model.slice(8, 16)}/>
-        </StyledTapTableContainer>
-        <TableLegend/>
-        <FileSelector onModelUpdate={data => this.setState({model: data})} />
-      </StyledMainScreen>
+      <div>
+        <NotificationSystem ref='notificationSystem' style={notificationStyle}/>
+        <StyledMainScreen>
+          <StyledTapTableContainer>
+            <TapTable data={this.state.model.slice(0, 8)}/>
+            <TapTable data={this.state.model.slice(8, 16)}/>
+          </StyledTapTableContainer>
+          <TableLegend/>
+          <FileSelector
+            onModelUpdate={data => this.onModelUpdate(data)}
+            onModelParseError={error => this.onModelParseError(error)}/>
+        </StyledMainScreen>
+      </div>
     )
   }
 }
