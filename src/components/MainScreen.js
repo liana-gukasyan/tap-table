@@ -15,19 +15,24 @@ const StyledMainScreen = styled.div`
   width: 100%;
   height: 100vh;
   background-image: url(${background});
+`
+
+const StyledContentWrapper = styled.div`
+  width: 100%;
+  max-height: 100%;
   color: white;
   @font-face {
     font-family: 'Barkentina';
     src: url(${font});
   }
   font-family: 'Barkentina';
+  overflow: hidden;
 `
 
 const StyledTapTableContainer = styled.div`
   display: flex;
   justify-content: center;
-  height: 90vh;
-  padding: 20px;
+  padding: 10px;
 `
 
 const notificationStyle = {
@@ -110,9 +115,9 @@ export default class MainScreen extends Component {
 
   render() {
     return (
-      <div>
+      <StyledMainScreen>
         <NotificationSystem ref='notificationSystem' style={notificationStyle}/>
-        <StyledMainScreen>
+        <StyledContentWrapper>
           <StyledTapTableContainer>
             <TapTable data={this.state.model.slice(0, 8)}/>
             <TapTable data={this.state.model.slice(8, 16)}/>
@@ -121,8 +126,8 @@ export default class MainScreen extends Component {
           <FileSelector
             onModelUpdate={data => this.onModelUpdate(data)}
             onModelParseError={error => this.onModelParseError(error)}/>
-        </StyledMainScreen>
-      </div>
+        </StyledContentWrapper>
+      </StyledMainScreen>
     )
   }
 }

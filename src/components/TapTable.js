@@ -27,7 +27,7 @@ const StyledHeaderCell = styled.th`
 `
 
 const StyledTableCell = styled.td`
-  height: 54px;
+  height: 64px;
   text-align: center;
   font-size: 16px;
   border-left: 1px dotted white;
@@ -44,20 +44,20 @@ const TitleCell = styled.div`
   justify-content: center;
   padding-left: 6px;
   text-align: left;
-  font-size: 20px;
+  font-size: 22px;
 `
 
 const StyledPrice = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  font-size: 16px;
-  padding: 0 4px;
+  font-size: 18px;
+  padding: 0 2px;
 `
 
 const IconWrapper = styled.div`
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
 `
 
 class TableRows extends React.Component {

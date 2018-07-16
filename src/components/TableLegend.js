@@ -16,8 +16,7 @@ const VolumeDiv = styled.div`
 const TableLegendContainer = styled.div`
   display: flex;
   margin-left: 20px;
-  position: fixed;
-  bottom: 10px;
+  padding-bottom: 5px;
 `
 
 const IconWrapper = styled.div`
