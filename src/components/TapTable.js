@@ -27,9 +27,9 @@ const StyledHeaderCell = styled.th`
 `
 
 const StyledTableCell = styled.td`
-  height: 64px;
+  height: 78px;
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
   border-left: 1px dotted white;
   border-bottom: 1px dotted white;
 
@@ -44,14 +44,14 @@ const TitleCell = styled.div`
   justify-content: center;
   padding-left: 6px;
   text-align: left;
-  font-size: 22px;
+  font-size: 24px;
 `
 
 const StyledPrice = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  font-size: 18px;
+  font-size: 20px;
   padding: 0 2px;
 `
 
