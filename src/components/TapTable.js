@@ -18,6 +18,7 @@ const StyledHeaderCell = styled.th`
   height: 40px;
   border-bottom: 1px solid white;
   border-left: 1px dotted white;
+  font-size: 18px;
   &:first-child {
     text-align: left;
   }
