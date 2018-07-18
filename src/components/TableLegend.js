@@ -10,7 +10,7 @@ const VolumeDiv = styled.div`
   display: flex;
   align-items: center;
   width: auto;
-  margin-right: 10px;
+  margin-right: 18px;
   font-size: 24px;
 `
 
@@ -23,6 +23,7 @@ const TableLegendContainer = styled.div`
 const IconWrapper = styled.div`
   width: 24px;
   height: 24px;
+  margin-right: 5px;
 `
 
 export default class TableLegend extends Component {
