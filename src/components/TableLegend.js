@@ -11,6 +11,7 @@ const VolumeDiv = styled.div`
   align-items: center;
   width: auto;
   margin-right: 10px;
+  font-size: 24px;
 `
 
 const TableLegendContainer = styled.div`
@@ -30,19 +31,19 @@ export default class TableLegend extends Component {
       <TableLegendContainer>
         <VolumeDiv>
           <IconWrapper><IconPrice025/></IconWrapper>
-          0.25 ml
+          0.25
         </VolumeDiv>
         <VolumeDiv>
           <IconWrapper><IconPrice033/></IconWrapper>
-          0.33 ml
+          0.33
         </VolumeDiv>
         <VolumeDiv>
           <IconWrapper><IconPrice040/></IconWrapper>
-          0.4 ml
+          0.4
         </VolumeDiv>
         <VolumeDiv>
           <IconWrapper><IconPrice050/></IconWrapper>
-          0.5 ml
+          0.5
         </VolumeDiv>
       </TableLegendContainer>
     )

@@ -57,8 +57,8 @@ const StyledPrice = styled.div`
 `
 
 const IconWrapper = styled.div`
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
 `
 
 class TableRows extends React.Component {

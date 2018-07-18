@@ -32,7 +32,7 @@ const StyledContentWrapper = styled.div`
 const StyledTapTableContainer = styled.div`
   display: flex;
   justify-content: center;
-  padding: 10px;
+  padding: 32px 10px;
 `
 
 const notificationStyle = {
