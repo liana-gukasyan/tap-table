@@ -9,8 +9,9 @@ const TopAbsolute = styled.div`
   top: 0;
   left: 0;
   display: block;
-  width: 15px;
-  height: 15px;
+  width: 100%;
+  height: 20px;
+  cursor: pointer;
 `
 
 const FileInput = styled.input`
@@ -24,10 +25,10 @@ const FileInput = styled.input`
 
 const FileLabel = styled.label`
   display: block;
-  width: 15px;
-  height: 15px;
+  width: 100%;
+  height: 20px;
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
 `
 
 

@@ -78,7 +78,7 @@ export default class MainScreen extends Component {
     } else {
       setTimeout(_ => {
         this._notificationSystem.addNotification({
-          message: '🤔 Для загрузки таблицы кранов из эксель файлы (xlsx) кликните в левый верхний угол страницы',
+          message: '🤔 Для загрузки таблицы кранов из эксель-файла (xlsx/xls), кликните в зону самом верху страницы',
           position: 'tc',
           autoDismiss: 20,
           level: 'info',
