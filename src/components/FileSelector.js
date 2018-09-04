@@ -35,9 +35,9 @@ export default class FileSelector extends React.Component {
     handleChange(selectorFiles) {
       const f = selectorFiles[0]
       const ext = getFileExtension(f.name)
-      if(ext !== 'xlsx') {
+      if(ext !== 'xlsx' && ext !== 'xls') {
         this.props.onModelParseError(
-          `TapTable умеет читать только эксель файлы с расширением xlsx, вы загразили файл с расширением ${ext}.`
+          `TapTable умеет читать только табличные файлы с расширениями xlsx или xls, вы загрузили файл с расширением ${ext}.`
         )
         return
       }
@@ -70,7 +70,7 @@ export default class FileSelector extends React.Component {
           this.props.onModelUpdate(model)
         } else {
           console.warn('parsing error', result)
-          this.props.onModelParseError('TapTable не может прочитать ваш xlsx файл! Мы ожидаем на входе файл определнной структуры, прверьте вашу талицу и еще раз сверьтесь с обазцом.')
+          this.props.onModelParseError('TapTable не может прочитать ваш xls/xlsx файл! Мы ожидаем на входе файл определнной структуры, проверьте вашу таблицу и еще раз сверьтесь с образцом файла.')
         }
       }
 

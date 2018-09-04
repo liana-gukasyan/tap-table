@@ -71,7 +71,7 @@ class TableRows extends React.Component {
       <tr key={data.tapNumber}>
         {
           data.titleFirstRow ?
-          <StyledTableCell key={data.titleFirstRow}>
+          <StyledTableCell key={data.titleFirstRow + data.tapNumber}>
             <TitleCell>
               {data.tapNumber + '. ' + data.titleFirstRow}
               <span>{data.titleSecondRow}</span>
@@ -82,20 +82,20 @@ class TableRows extends React.Component {
         }
         {
           data.style ?
-          <StyledTableCell key={data.style}>{data.style}</StyledTableCell>
+          <StyledTableCell key={data.style + data.tapNumber}>{data.style}</StyledTableCell>
           :
           <StyledTableCell/>
         }
         {
           data.abvibu ?
-          <StyledTableCell key={data.abvibu}>{data.abvibu}</StyledTableCell>
+          <StyledTableCell key={data.abvibu + data.tapNumber}>{data.abvibu}</StyledTableCell>
           :
           <StyledTableCell/>
         }
         <StyledTableCell key={'price'}>
           {
             data.price025 ?
-            <StyledPrice key={data.price025}>
+            <StyledPrice key={data.price025 + data.tapNumber}>
               <IconWrapper><IconPrice025/></IconWrapper>
               {data.price025 + ' р.'}
             </StyledPrice>
@@ -104,7 +104,7 @@ class TableRows extends React.Component {
           }
           {
             data.price033 ?
-            <StyledPrice key={data.price033}>
+            <StyledPrice key={data.price033 + data.tapNumber}>
               <IconWrapper><IconPrice033/></IconWrapper>
               {data.price033 + ' р.'}
             </StyledPrice>
@@ -113,7 +113,7 @@ class TableRows extends React.Component {
           }
           {
             data.price040 ?
-            <StyledPrice key={data.price040}>
+            <StyledPrice key={data.price040 + data.tapNumber}>
               <IconWrapper><IconPrice040/></IconWrapper>
               {data.price040 + ' р.'}
             </StyledPrice>
@@ -122,7 +122,7 @@ class TableRows extends React.Component {
           }
           {
             data.price050 ?
-            <StyledPrice key={data.price050}>
+            <StyledPrice key={data.price050 + data.tapNumber}>
               <IconWrapper><IconPrice050/></IconWrapper>
               {data.price050 + ' р.'}
             </StyledPrice>
