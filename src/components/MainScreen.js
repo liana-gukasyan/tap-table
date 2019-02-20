@@ -3,36 +3,40 @@ import styled from 'styled-components'
 import NotificationSystem from 'react-notification-system'
 
 import TapTable from './TapTable'
-import TableLegend from './TableLegend'
 import FileSelector from './FileSelector'
 
 import {emptyModel} from '../utils'
 
-import background from '../assets/img/jungle.jpg'
-import font from '../fonts/Barkentina.otf'
+import gilroyLight from '../fonts/GilroyLight.otf'
+import gilroyExtraBold from '../fonts/GilroyExtraBold.otf'
 
 const StyledMainScreen = styled.div`
   width: 100%;
   height: 100vh;
-  background-image: url(${background});
+  background-color: #1F4434;
 `
 
 const StyledContentWrapper = styled.div`
+  display: flex;
   width: 100%;
-  max-height: 100%;
+  height: 100%;
   color: white;
   @font-face {
-    font-family: 'Barkentina';
-    src: url(${font});
+    font-family: 'GilroyLight';
+    src: url(${gilroyLight});
   }
-  font-family: 'Barkentina';
+  @font-face {
+    font-family: 'GilroyExtraBold';
+    src: url(${gilroyExtraBold});
+  }
+  font-family: 'GilroyLight';
   overflow: hidden;
 `
 
 const StyledTapTableContainer = styled.div`
   display: flex;
   justify-content: center;
-  padding: 32px 10px;
+  padding: 32px 16px;
 `
 
 const notificationStyle = {
@@ -119,10 +123,9 @@ export default class MainScreen extends Component {
         <NotificationSystem ref='notificationSystem' style={notificationStyle}/>
         <StyledContentWrapper>
           <StyledTapTableContainer>
-            <TapTable data={this.state.model.slice(0, 8)}/>
-            <TapTable data={this.state.model.slice(8, 16)}/>
+            <TapTable data={this.state.model.slice(0, 7)}/>
+            <TapTable data={this.state.model.slice(7, 14)}/>
           </StyledTapTableContainer>
-          <TableLegend/>
           <FileSelector
             onModelUpdate={data => this.onModelUpdate(data)}
             onModelParseError={error => this.onModelParseError(error)}/>

@@ -55,12 +55,13 @@ export default class FileSelector extends React.Component {
 
         if (result.error === null) {
           const model = parsedModel.map(m => {
+            const abvibu = m.ibu !== 'N/A' ? `${m.abv} | ${m.ibu}` : `${m.abv} | –`
             return {
               tapNumber: Number(m.tapNumber),
               titleFirstRow: m.titleFirstRow,
               titleSecondRow: m.titleSecondRow,
               style: m.style,
-              abvibu: `${m.abv}/${m.ibu}`,
+              abvibu: abvibu,
               price025: Number(m.price025),
               price033: Number(m.price033),
               price040: Number(m.price040),

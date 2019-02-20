@@ -2,41 +2,54 @@ import React,{ Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import IconPrice025 from './IconPrice025'
-import IconPrice033 from './IconPrice033'
-import IconPrice040 from './IconPrice040'
-import IconPrice050 from './IconPrice050'
-
-import background from '../assets/img/jungle.jpg';
-
 const StyledTable = styled.table`
   width: 100%;
   height: 100%;
+  border-collapse: collapse;
+  &:first-child {
+    margin-right: 36px;
+  }
 `
 
 const StyledHeaderCell = styled.th`
   height: 40px;
-  border-bottom: 1px solid white;
-  border-left: 1px dotted white;
-  font-size: 18px;
+  font-size: 14px;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  text-align: right;
+  color: #8FA29A;
   &:first-child {
     text-align: left;
   }
+`
+
+const StyledAbvibuCell = styled(StyledHeaderCell)`
+  padding-left: 20px;
+  min-width: 90px;
+`
+
+const StyledPriceCell = styled(StyledHeaderCell)`
+  padding-left: 20px;
+  min-width: 120px;
+`
+
+const StyledTableRow = styled.tr`
+  border-bottom: 2px solid rgba(255,255,255,0.1);
   &:last-child {
-    border-right: 1px dotted white;
+    border-bottom: none;
   }
 `
 
 const StyledTableCell = styled.td`
-  height: 78px;
-  text-align: center;
-  font-size: 18px;
-  border-left: 1px dotted white;
-  border-bottom: 1px dotted white;
+  height: 85px;
+  text-align: right;
+  font-size: 16px;
+  letter-spacing: 0.8px;
+`
 
-  &:last-child {
-    border-right: 1px dotted white;
-  }
+const NumberCell = styled(StyledTableCell)`
+  font-family: GilroyExtraBold;
+  padding: 0 18px 0 4px;
 `
 
 const TitleCell = styled.div`
@@ -45,20 +58,31 @@ const TitleCell = styled.div`
   justify-content: center;
   padding-left: 6px;
   text-align: left;
-  font-size: 24px;
+  font-size: 18px;
+  letter-spacing: 0.9px;
+  max-width: 300px;
+`
+
+const SecondTitle = styled.div`
+  font-family: 'gilroyLight';
+  color: #A7A7A7;
+  font-size: 14px;
+  margin-top: 3px;
 `
 
 const StyledPrice = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   align-items: center;
-  font-size: 20px;
-  padding: 0 2px;
+  font-size: 16px;
+  margin-bottom: 6px;
+  &:last-child {
+    margin-bottom: 0;
+  }
 `
 
-const IconWrapper = styled.div`
-  width: 20px;
-  height: 20px;
+const VolumeWrapper = styled.div`
+  margin-right: 16px;
 `
 
 class TableRows extends React.Component {
@@ -68,13 +92,21 @@ class TableRows extends React.Component {
     } = this.props
 
     return data.map((data) =>
-      <tr key={data.tapNumber}>
+      <StyledTableRow key={data.tapNumber}>
+        {
+          data.tapNumber ?
+          <NumberCell key={data.tapNumber}>
+            {data.tapNumber}
+          </NumberCell>
+          :
+          <NumberCell/>
+        }
         {
           data.titleFirstRow ?
-          <StyledTableCell key={data.titleFirstRow + data.tapNumber}>
-            <TitleCell>
-              {data.tapNumber + '. ' + data.titleFirstRow}
-              <span>{data.titleSecondRow}</span>
+          <StyledTableCell key={data.titleFirstRow + data.titleSecondRow}>
+            <TitleCell style={{fontFamily: 'GilroyExtraBold'}}>
+              {data.titleFirstRow}
+              <SecondTitle>{data.titleSecondRow}</SecondTitle>
             </TitleCell>
           </StyledTableCell>
           :
@@ -88,49 +120,49 @@ class TableRows extends React.Component {
         }
         {
           data.abvibu ?
-          <StyledTableCell key={data.abvibu + data.tapNumber}>{data.abvibu}</StyledTableCell>
+          <StyledTableCell key={data.abvibu + data.tapNumber} style={{paddingLeft: '20px'}}>{data.abvibu}</StyledTableCell>
           :
           <StyledTableCell/>
         }
-        <StyledTableCell key={'price'}>
+        <StyledTableCell key={'price'} style={{paddingLeft: '20px'}}>
           {
             data.price025 ?
             <StyledPrice key={data.price025 + data.tapNumber}>
-              <IconWrapper><IconPrice025/></IconWrapper>
-              {data.price025 + ' р.'}
+              <VolumeWrapper>0.25</VolumeWrapper>
+              {data.price025 + 'р.'}
             </StyledPrice>
             :
-            <StyledPrice/>
+            undefined
           }
           {
             data.price033 ?
             <StyledPrice key={data.price033 + data.tapNumber}>
-              <IconWrapper><IconPrice033/></IconWrapper>
-              {data.price033 + ' р.'}
+              <VolumeWrapper>0.33</VolumeWrapper>
+              {data.price033 + 'р.'}
             </StyledPrice>
             :
-            <StyledPrice/>
+            undefined
           }
           {
             data.price040 ?
             <StyledPrice key={data.price040 + data.tapNumber}>
-              <IconWrapper><IconPrice040/></IconWrapper>
-              {data.price040 + ' р.'}
+              <VolumeWrapper>0.4</VolumeWrapper>
+              {data.price040 + 'р.'}
             </StyledPrice>
             :
-            <StyledPrice/>
+            undefined
           }
           {
             data.price050 ?
             <StyledPrice key={data.price050 + data.tapNumber}>
-              <IconWrapper><IconPrice050/></IconWrapper>
-              {data.price050 + ' р.'}
+              <VolumeWrapper>0.5</VolumeWrapper>
+              {data.price050 + 'р.'}
             </StyledPrice>
             :
-            <StyledPrice/>
+            undefined
           }
         </StyledTableCell>
-      </tr>
+      </StyledTableRow>
     )
   }
 }
@@ -140,14 +172,15 @@ export default class TapTable extends Component {
     return (
       <StyledTable>
         <tbody>
-          <tr>
-            <StyledHeaderCell style={{paddingLeft:'6px'}}>
+          <StyledTableRow>
+            <StyledHeaderCell/>
+            <StyledHeaderCell style={{textAlign: 'left'}}>
               Название/пивоварня
             </StyledHeaderCell>
             <StyledHeaderCell>Стиль</StyledHeaderCell> 
-            <StyledHeaderCell>ABV/IBU</StyledHeaderCell>
-            <StyledHeaderCell>Цена</StyledHeaderCell>
-          </tr>
+            <StyledAbvibuCell>ABV | IBU</StyledAbvibuCell>
+            <StyledPriceCell>Объём | Цена</StyledPriceCell>
+          </StyledTableRow>
           <TableRows data={this.props.data} />
         </tbody>
       </StyledTable>
