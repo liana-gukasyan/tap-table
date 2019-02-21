@@ -62,8 +62,10 @@ export default class FileSelector extends React.Component {
               titleSecondRow: m.titleSecondRow,
               style: m.style,
               abvibu: abvibu,
+              price010: Number(m.price010),
+              price020: Number(m.price020),
               price025: Number(m.price025),
-              price033: Number(m.price033),
+              price030: Number(m.price030),
               price040: Number(m.price040),
               price050: Number(m.price050),
             }

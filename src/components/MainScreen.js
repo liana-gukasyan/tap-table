@@ -36,7 +36,8 @@ const StyledContentWrapper = styled.div`
 const StyledTapTableContainer = styled.div`
   display: flex;
   justify-content: center;
-  padding: 32px 16px;
+  padding: 32px;
+  width: 100%;
 `
 
 const notificationStyle = {
@@ -141,8 +142,10 @@ const mockTaps1 = [{
   titleSecondRow: 'Rostov-on-Don',
   style: 'Tripel',
   abvibu: '8.2/N/A',
+  price010: 100,
+  price020: 100,
   price025: 100,
-  price033: 150,
+  price030: 150,
   price040: 250,
   price050: 300,
 },{
@@ -151,8 +154,10 @@ const mockTaps1 = [{
   titleSecondRow: 'Barcelona',
   style: 'Tripel',
   abvibu: '8.2/N/A',
+  price010: 100,
+  price020: 100,
   price025: 100,
-  price033: 200,
+  price030: 200,
   price040: 250,
   price050: 300,
 },{
@@ -161,8 +166,10 @@ const mockTaps1 = [{
   titleSecondRow: 'Paris',
   style: 'Tripel',
   abvibu: '8.2/N/A',
+  price010: 100,
+  price020: 100,
   price025: 50,
-  price033: 250,
+  price030: 250,
   price040: 250,
   price050: 500,
 },{
@@ -171,8 +178,10 @@ const mockTaps1 = [{
   titleSecondRow: 'Rostov-on-Don',
   style: 'Tripel',
   abvibu: '8.2/N/A',
+  price010: 100,
+  price020: 100,
   price025: 100,
-  price033: 150,
+  price030: 150,
   price040: 250,
   price050: 300,
 },{
@@ -181,8 +190,10 @@ const mockTaps1 = [{
   titleSecondRow: 'Barcelona',
   style: 'Tripel',
   abvibu: '8.2/N/A',
+  price010: 100,
+  price020: 100,
   price025: 100,
-  price033: 200,
+  price030: 200,
   price040: 250,
   price050: 300,
 },{
@@ -191,8 +202,10 @@ const mockTaps1 = [{
   titleSecondRow: 'Paris',
   style: 'Tripel',
   abvibu: '8.2/N/A',
+  price010: 100,
+  price020: 100,
   price025: 50,
-  price033: 250,
+  price030: 250,
   price040: 250,
   price050: 500,
 },{
@@ -201,18 +214,10 @@ const mockTaps1 = [{
   titleSecondRow: 'Rostov-on-Don',
   style: 'Tripel',
   abvibu: '8.2/N/A',
+  price010: 100,
+  price020: 100,
   price025: 100,
-  price033: 150,
-  price040: 250,
-  price050: 300,
-},{
-  tapNumber: 2,
-  titleFirstRow: 'Ololo',
-  titleSecondRow: 'Barcelona',
-  style: 'Tripel',
-  abvibu: '8.2/N/A',
-  price025: 100,
-  price033: 200,
+  price030: 150,
   price040: 250,
   price050: 300,
 }]
@@ -223,8 +228,10 @@ const mockTaps2 = [{
   titleSecondRow: 'Paris',
   style: 'Tripel',
   abvibu: '8.2/N/A',
+  price010: 100,
+  price020: 100,
   price025: 50,
-  price033: 250,
+  price030: 250,
   price040: 250,
   price050: 500,
 },{
@@ -233,8 +240,10 @@ const mockTaps2 = [{
   titleSecondRow: 'Rostov-on-Don',
   style: 'Tripel',
   abvibu: '8.2/N/A',
+  price010: 100,
+  price020: 100,
   price025: 100,
-  price033: 150,
+  price030: 150,
   price040: 250,
   price050: 300,
 },{
@@ -243,8 +252,10 @@ const mockTaps2 = [{
   titleSecondRow: 'Barcelona',
   style: 'Tripel',
   abvibu: '8.2/N/A',
+  price010: 100,
+  price020: 100,
   price025: 100,
-  price033: 200,
+  price030: 200,
   price040: 250,
   price050: 300,
 },{
@@ -253,8 +264,10 @@ const mockTaps2 = [{
   titleSecondRow: 'Paris',
   style: 'Tripel',
   abvibu: '8.2/N/A',
+  price010: 100,
+  price020: 100,
   price025: 50,
-  price033: 250,
+  price030: 250,
   price040: 250,
   price050: 500,
 },{
@@ -263,8 +276,10 @@ const mockTaps2 = [{
   titleSecondRow: 'Paris',
   style: 'Tripel',
   abvibu: '8.2/N/A',
+  price010: 100,
+  price020: 100,
   price025: 50,
-  price033: 250,
+  price030: 250,
   price040: 250,
   price050: 500,
 },{
@@ -273,8 +288,10 @@ const mockTaps2 = [{
   titleSecondRow: 'Rostov-on-Don',
   style: 'Tripel',
   abvibu: '8.2/N/A',
+  price010: 100,
+  price020: 100,
   price025: 100,
-  price033: 150,
+  price030: 150,
   price040: 250,
   price050: 300,
 },{
@@ -283,18 +300,10 @@ const mockTaps2 = [{
   titleSecondRow: 'Barcelona',
   style: 'Tripel',
   abvibu: '8.2/N/A',
+  price010: 100,
+  price020: 100,
   price025: 100,
-  price033: 200,
+  price030: 200,
   price040: 250,
   price050: 300,
-},{
-  tapNumber: 3,
-  titleFirstRow: 'Another beer',
-  titleSecondRow: 'Paris',
-  style: 'Tripel',
-  abvibu: '8.2/N/A',
-  price025: 50,
-  price033: 250,
-  price040: 250,
-  price050: 500,
 }]

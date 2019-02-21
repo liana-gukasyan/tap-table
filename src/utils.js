@@ -7,8 +7,10 @@ const itemSchema = Joi.object().keys({
   style: Joi.string(),
   abv: Joi.string(),
   ibu: Joi.string(),
+  price010: Joi.number(),
+  price020: Joi.number(),
   price025: Joi.number(),
-  price033: Joi.number(),
+  price030: Joi.number(),
   price040: Joi.number(),
   price050: Joi.number(),
 })
