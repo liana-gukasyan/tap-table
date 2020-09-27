@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const StyledTable = styled.table`
-  width: 100%;
+  width: 50%;
   height: 100%;
   border-collapse: collapse;
   &:first-child {
